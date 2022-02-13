@@ -9,9 +9,12 @@ function App() {
       <h1>Sign Up</h1>
       <Formik
         initialValues={{
-          firstName: '',
-          lastName: '',
-          email: '',
+          firstName: "Elif",
+          lastName: "Cifci",
+          email: "elifcifci@gmail.com",
+          gender: "female",
+          hobies: "Programing",
+          country: "England"
         }}
         onSubmit={async (values) => {
           console.log(JSON.stringify(values, null, 2));
@@ -43,41 +46,128 @@ function App() {
         </Form> */}
 
         {/* handleSubmit and handleChange (Without Form and Field) */}
-        {({ handleSubmit, handleChange }) => (
+        {({ handleSubmit, handleChange, values }) => (
           <form onSubmit={handleSubmit}>
-            <label htmlFor="firstName">First Name: </label> <span />
-            <input
-              id="firstName"
-              name="firstName"
-              placeholder="Jane"
-              onChange={handleChange} />
-            <br />
+            {/*Name field */}
+            <div>
+              <label htmlFor="firstName" >First Name: </label> <span />
+              <input
+                value={values.firstName}
+                className={styles.formItem}
+                id="firstName"
+                name="firstName"
+                placeholder="Jane"
+                onChange={handleChange} />
+            </div>
+
+            {/* Lastname field */}
+            <div>
+              <label htmlFor="lastName">Last Name: </label> <span />
+              <input
+                className={styles.formItem}
+                value={values.lastName}
+                id="lastName"
+                name="lastName"
+                placeholder="Doe"
+                onChange={handleChange}
+              />
+            </div>
+
+            {/* E-mail field */}
+            <div>
+              <label htmlFor="email">Email: </label> <span />
+              <input
+                className={styles.formItem}
+                value={values.email}
+                id="email"
+                name="email"
+                placeholder="jane@acme.com"
+                type="email"
+                onChange={handleChange}
+              />
+            </div>
+
+            {/* Select gender field */}
+            <div>
+              <span>Male </span>
+              <input
+                className={styles.genderMale, styles.formItem}
+                type="radio"
+                id="gender"
+                name="gender"
+                value="male"
+                onChange={handleChange}
+                checked={values.gender === "male"}
+              />
+
+              <span> Female </span>
+              <input type="radio"
+                id="gender"
+                name="gender"
+                value="female"
+                onChange={handleChange}
+                checked={values.gender === "female"}
+              />
+            </div>
+
+            {/* checkboxes field */}
+            <div className={styles.formItem}>
+              <div className={styles.checkboxes}>
+                <input
+                  type="checkbox"
+                  name="hobies"
+                  value="Programing"
+                  onChange={handleChange}
+                />
+                <span>Programing </span>
+              </div>
+
+              <div className={styles.checkboxes}>
+                <input
+                  type="checkbox"
+                  name="hobies"
+                  value="voleyball"
+                  onChange={handleChange}
+                />
+                <span> Voleyball </span>
+              </div>
+
+              <div className={styles.checkboxes}>
+                <input
+                  type="checkbox"
+                  name="hobies"
+                  value="Chess"
+                  onChange={handleChange}
+                />
+                <span> Chess </span>
+              </div>
+
+              <div className={styles.checkboxes}>
+                <input
+                  type="checkbox"
+                  name="hobies"
+                  value="Painting"
+                  onChange={handleChange}
+                />
+                <span> Painting </span>
+              </div>
+            </div>
+
+            {/* Select country field */}
+            <select className={styles.formItem} value={values.country} onChange={handleChange}>
+              <option value="Turkey">Turkey</option>
+              <option value="England">England</option>
+              <option value="America">America</option>
+            </select>
             <br />
 
-            <label htmlFor="lastName">Last Name: </label> <span />
-            <input
-              id="lastName"
-              name="lastName"
-              placeholder="Doe"
-              onChange={handleChange} />
-            <br />
+            <button className={styles.formItem} type="submit">Submit</button>
             <br />
 
-            <label htmlFor="email">Email: </label> <span />
-            <input
-              id="email"
-              name="email"
-              placeholder="jane@acme.com"
-              type="email"
-              onChange={handleChange}
-            />
-            <br />
-            <br />
-
-            <button type="submit">Submit</button>
+            {JSON.stringify(values)}
           </form>
 
-  )}
+        )}
 
       </Formik>
 

@@ -1,5 +1,17 @@
 body{
-display: flex;
-justify-content: center;
+    display: flex;
+    justify-content: center;
 text-align: center;
+}
+
+.genderMale{
+    margin-right: 30px;
+}
+
+.formItem{
+    margin-bottom: 15px;
+}
+
+.checkboxes{
+    margin-bottom: 2px;
 }
