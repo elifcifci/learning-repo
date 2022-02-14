@@ -1,7 +1,7 @@
 body{
     display: flex;
     justify-content: center;
-text-align: center;
+    text-align: center;
 }
 
 .genderMale{
@@ -14,4 +14,14 @@ text-align: center;
 
 .checkboxes{
     margin-bottom: 2px;
+}
+
+.errors{
+    color: rgba(245, 9, 9, 0.575);
+    font-size: small;
+    
+}
+
+label {
+    display: block;
 }
