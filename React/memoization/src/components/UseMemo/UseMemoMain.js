@@ -14,9 +14,10 @@ function UseMemoMain() {
     return (
         <div className={"makeCenter"}>
             <Header number={number} />
+
             <h1 className={"h1"}>{number}</h1>
             <button onClick={() => setNumber(number + 1)}>Click</button>
-            <br/><br/>
+            <br /><br />
             <input value={text} onChange={({ target }) => setText(target.value)} />
 
             <Footer />
