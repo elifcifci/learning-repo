@@ -19,4 +19,4 @@ Exercised with useMemo: Header component was not affected by input changes.
 ------
 
 Exercised with useCallback: Header component was not affected by click event.
-![ Exercised with useMemo.](./public/useMemo.jpg)
+![ Exercised with useMemo.](./public/useCallback.jpg)
