@@ -2,12 +2,12 @@ import { useContext } from 'react'
 import ThemeContext from '../context/ThemeContext';
 
 function Button() {
-  const data = useContext(ThemeContext);
-  console.log(data);
+  const {theme, setTheme} = useContext(ThemeContext);
 
   return (
     <div>
-      <div>Button: {data}</div>
+     <div> Active theme: {theme}</div>
+      <button onClick={() => setTheme(theme === "Light" ? "Dark" : "Light")}>Change Theme</button>
     </div>
   )
 }
