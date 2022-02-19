@@ -2,6 +2,10 @@ body{
     text-align: center;
 }
 
+h3{
+    text-align: left;
+    color: rgb(161, 206, 38)
+}
 .dark-theme {
     height: 100vh;
     color: blanchedalmond;

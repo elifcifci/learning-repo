@@ -5,9 +5,10 @@ function Header() {
     const { theme, setTheme } = useContext(ThemeContext);
 
     return (<div>
-
+        <h3>Header Component</h3>
         <div> Active theme: {theme}</div>
-        <button onClick={() => setTheme(theme === "Light" ? "Dark" : "Light")}>Change Theme</button>
+        <br />
+        <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>Change Theme</button>
 
     </div>)
 }
