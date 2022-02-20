@@ -1,0 +1,15 @@
+.cardHeader{
+    border-radius: 10px;
+    border: solid 0px ;
+    padding: 6px;
+    font-size: large;
+    background-color: rgb(222, 196, 247);
+}
+
+.filter{
+    font-family: 'Alegreya', serif;
+    font-family: 'Josefin Slab', serif;
+    font-size: small;
+    border-radius: 10px;
+
+}
