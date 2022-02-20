@@ -1,3 +1,21 @@
-import { createContext } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+
 const ThemeContext = createContext();
-export default ThemeContext;
+
+export const ThemeProvider = ({ children }) => {
+    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+    useEffect(() => {
+        localStorage.setItem("theme", theme)
+        console.log(theme);
+    }, [theme])
+
+    const values = {
+        theme,
+        setTheme,
+    }
+
+    return (
+        <ThemeContext.Provider value={values}>{children}</ThemeContext.Provider>
+    )
+};
+export const useTheme = () => useContext(ThemeContext);
