@@ -1,13 +1,21 @@
 import { useEffect, useState } from 'react'
+import { useCurrentWeather } from '../../Context/CurrentWeatherContext';
+import { useCurrentDay } from '../../Context/CurrentDayNameContext';
 import style from './style.module.css'
 
 function Cards() {
+  const { maxTemperature, minTemperature, weather } = useCurrentWeather();
+  const { dayName, weekdays } = useCurrentDay();
 
   return (
-    <div className={style.card, style.row}>
-      <div className="card-body days col-sm-3">
-        <h5 className="card-title">Special title treatment</h5>
-        <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <div className={style.card, "row"}>
+      <div className={style.days, "col-sm-1"}>
+        <h5 className={style.h5}>{dayName}</h5>
+        <img className={style.weatherImages} src={`./img/${weather}.png`} />
+        <div>
+          <span className={style.maxTemperature}>{maxTemperature} &#176; </span>
+          <span className={style.minTemperature}>{minTemperature} &#176; </span>
+        </div>
       </div>
     </div>)
 }

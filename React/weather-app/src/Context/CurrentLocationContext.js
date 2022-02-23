@@ -6,7 +6,7 @@ const CurrentLocationContext = createContext();
 export const CurrentLocationProvider = ({ children }) => {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
-
+  const [isLocationCompleted, setIsLocationCompleted] = useState(false)
   const geolocation = useGeolocation();
 
   useEffect(() => {
@@ -19,7 +19,13 @@ export const CurrentLocationProvider = ({ children }) => {
     }
   }, [geolocation])
 
-  const values = { latitude, longitude };
+  useEffect(() => {
+    if (latitude && longitude) {
+      setIsLocationCompleted(true);
+    }
+  }, [latitude, longitude])
+
+  const values = { latitude, longitude, isLocationCompleted };
 
   return (
     <CurrentLocationContext.Provider value={values}>{children}</CurrentLocationContext.Provider>

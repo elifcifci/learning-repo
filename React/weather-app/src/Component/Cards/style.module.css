@@ -1,6 +1,26 @@
 .days{
     max-width: fit-content;
+    text-align: center;
+    
 }
 .card{
     background-color: #f8f9fa;
+    border-radius: 2px;
+    border: black solid 1px;
+}
+
+.weatherImages{
+    width: 50px;
+}
+.maxTemperature{
+    font-size: 18px;
+    color: rgb(48, 47, 47)
+}
+.minTemperature{
+    font-size: 18px;
+    color: grey
+}
+
+.h5{
+    font-size: 20px;
 }
