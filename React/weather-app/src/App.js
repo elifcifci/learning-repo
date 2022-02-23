@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import Container from "./Component/Container";
-import { CurrentDayNameProvider } from "./Context/CurrentDayNameContext";
 import { CurrentLocationProvider } from './Context/CurrentLocationContext';
-import { CurrentWeatherProvider } from "./Context/CurrentWeatherContext";
+import { WeatherProvider } from "./Context/WeatherContext";
+import { FindCityProvider } from "./Context/FindCityContext"
 
 function App() {
   return (
     <CurrentLocationProvider>
-      <CurrentWeatherProvider>
-        <CurrentDayNameProvider>
-        <Container />
-        </CurrentDayNameProvider>
-      </CurrentWeatherProvider>
+      <FindCityProvider>
+        <WeatherProvider>
+            <Container />
+        </WeatherProvider>
+      </FindCityProvider>
     </CurrentLocationProvider>
   )
 }
