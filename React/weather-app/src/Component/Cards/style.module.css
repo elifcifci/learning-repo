@@ -1,13 +1,30 @@
 .days{
     max-width: fit-content;
     text-align: center;
-    
 }
+
+.cardContainer{
+    gap: 14px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    margin-left: 250px;
+    margin-right: 250px;
+
+}
+
 .cards{
     background-color: #fff;
     border-radius: 20%;
     padding: 3px;
     border: rgb(222, 196, 247) solid 3px;
+    width: 130px;
+    height: 145px;
+    flex-shrink: 0;
+}
+.currentDay{
+    background-color: #fff;
+    border: rgb(162, 125, 197) solid 3px;
+
 }
 
 .weatherImages{
@@ -25,4 +42,5 @@
 
 .h5{
     font-size: 20px;
+    margin-top: 6px;
 }
