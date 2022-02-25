@@ -1,0 +1,18 @@
+.cardHeader{
+    border-radius: 10px;
+    border: solid 0px ;
+    padding: 8px;
+    margin: 6px 0 6px 0;
+    font-size: large;
+    background-color: rgb(222, 196, 247);
+    text-align: center;
+}
+
+.filter{
+    font-size: small;
+}
+
+.h1{
+color: rgb(78, 28, 124);
+    padding: 20px;
+}

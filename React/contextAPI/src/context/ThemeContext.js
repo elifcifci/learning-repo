@@ -18,4 +18,5 @@ export const ThemeProvider = ({ children }) => {
         <ThemeContext.Provider value={values}>{children}</ThemeContext.Provider>
     )
 };
+
 export const useTheme = () => useContext(ThemeContext);
