@@ -59,7 +59,7 @@ function Cards() {
       {weathers.map((item, index) => {
 
         return (
-          <div key={index} className={`${style.cards} ${index==0 && style.currentDay}`}>
+          <div key={index} className={`${style.cards} ${index === 0 && style.currentDay}`}>
             <h5 className={style.h5}>{dayName[index]}</h5>
             <img className={style.weatherImages} src={`./img/${weathers[index]}.png`} />
             <div>

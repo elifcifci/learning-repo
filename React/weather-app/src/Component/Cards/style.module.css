@@ -7,8 +7,9 @@
     gap: 14px;
     margin-top: 20px;
     flex-wrap: wrap;
-    margin-left: 250px;
-    margin-right: 250px;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
 
 }
 
