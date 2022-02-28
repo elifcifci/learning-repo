@@ -29,7 +29,7 @@ When the application is opened, it asks the user for location information. If us
 
     Install with yarn:   
   ```sh
-     yarn
+  yarn
   ```
 
 - In the project directory, you can run:
