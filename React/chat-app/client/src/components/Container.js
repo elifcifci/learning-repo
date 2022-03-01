@@ -1,14 +1,14 @@
-import React from 'react'
-import ChatForm from './ChatForm'
-import ChatList from './ChatList'
+import React from "react";
+import ChatForm from "./ChatForm";
+import ChatList from "./ChatList";
 
 function Container() {
   return (
-    <div>
-        <ChatForm/>
-        <ChatList/>
+    <div >
+      <ChatList />
+      <ChatForm />
     </div>
-  )
+  );
 }
 
-export default Container
+export default Container;
