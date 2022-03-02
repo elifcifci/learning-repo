@@ -6,26 +6,26 @@ import { useChat } from "../context/ChatContext";
 import { init, subscribeChat, subscribeInitialMessages } from "../socketApi";
 
 function Container() {
-  const { setMessages } = useChat();
+	const { setMessages } = useChat();
 
-  useEffect(() => {
-    init();
+	useEffect(() => {
+		init();
 
-    // subscribeInitialMessages((messages) => {
-    //   setMessages(messages);
-    // });
+		subscribeInitialMessages((messages) => {
+			setMessages(messages);
+		});
 
-    subscribeChat((message) => {
-      setMessages((prevState) => [...prevState, { message }]);
-    });
-  }, []);
+		subscribeChat((message) => {
+			setMessages((prevState) => [...prevState, { message }]);
+		});
+	}, []);
 
-  return (
-    <div>
-      <ChatList />
-      <ChatForm />
-    </div>
-  );
+	return (
+		<div className="App">
+			<ChatList />
+			<ChatForm />
+		</div>
+	);
 }
 
 export default Container;

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
 
 const ChatContext = createContext();
 
@@ -8,7 +8,7 @@ export const ChatProvider = ({ children }) => {
   const values = { messages, setMessages };
 
   return (
-    <ChatContext.Provider value={values}> {children} </ChatContext.Provider>
+  <ChatContext.Provider value={values}> {children} </ChatContext.Provider>
   );
 };
 
