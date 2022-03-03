@@ -1,0 +1,1 @@
+- Exercised localization: Changed page language with react-intl
