@@ -1,9 +1,9 @@
-# Weather App
+# COLOR-APP: Real-Time
 - In this simple project, the color change made by a client is transferred to all clients in real time.
 
 ### View of the project:
-<img src="./client/public/one.png" width="150px"/>
-<img src="./client/public/two.png" width="150px"/>
+<span><img src="./client/public/one.png" width="400px"/></span>
+<span><img src="./client/public/two.png" width="415px"/></span>
 
 ### In the project directory, you can run:
 
