@@ -2,9 +2,8 @@
 - In this simple project, the color change made by a client is transferred to all clients in real time.
 
 ### View of the project:
-
-<div style="width: 50px">![ general view ](./client/public/one.png)</div>
-<div style="width: 50px, margin-left: 10px">![ general view ](./client/public/two.png)</div>
+<img src="./client/public/one.png" width="150px"/>
+<img src="./client/public/two.png" width="150px"/>
 
 ### In the project directory, you can run:
 
