@@ -10,9 +10,5 @@
 
 .filter{
     font-size: small;
-}
-
-.h1{
-color: rgb(78, 28, 124);
-    padding: 20px;
+    border: solid;
 }

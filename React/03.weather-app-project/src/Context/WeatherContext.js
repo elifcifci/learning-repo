@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import useGeolocation from "react-hook-geolocation";
-import { geocoding } from "../constans";
+import { geocoding } from "../constants/constants";
 const WeatherContext = createContext();
 
 export const WeatherProvider = ({ children }) => {
@@ -15,20 +15,16 @@ export const WeatherProvider = ({ children }) => {
 
   //Reach current location
   useEffect(() => {
-    if (!geolocation.error) {
-      setCityCoordinate({
-        latitude: geolocation.latitude,
-        longitude: geolocation.longitude,
-      });
-    } else {
-      console.log("No geolocation.");
-    }
+    !geolocation.error
+      ? setCityCoordinate({
+          latitude: geolocation.latitude,
+          longitude: geolocation.longitude,
+        })
+      : console.log("No geolocation.");
   }, [geolocation?.latitude]);
 
   useEffect(() => {
-    if (cityCoordinate) {
-      setIsLocationCompleted(true);
-    }
+    cityCoordinate && setIsLocationCompleted(true);
 
     geocoding.map((item) => {
       let citiesLatitude = parseInt(item.lat);

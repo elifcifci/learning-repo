@@ -3,4 +3,10 @@
     text-align: center;
     background-color:#ececec;
     height: 100vh;
-    font-family: 'Playfair Display', serif;}
+    font-family: 'Playfair Display', serif;
+}
+
+.title{
+    color: rgb(78, 28, 124);
+        padding: 20px;
+}
