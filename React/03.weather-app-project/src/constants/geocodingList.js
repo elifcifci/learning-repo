@@ -1,13 +1,3 @@
-export const weekDays = {
-  0: "Sun",
-  1: "Mon",
-  2: "Tue",
-  3: "Wed",
-  4: "Thu",
-  5: "Fri",
-  6: "Sat",
-};
-
 export const geocoding = [
   { cityName: "Adana", lat: 37, lon: 35.3213333 },
   { cityName: "Adıyaman", lat: 37.7641667, lon: 38.2761667 },

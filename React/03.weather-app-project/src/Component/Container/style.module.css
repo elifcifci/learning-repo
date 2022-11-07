@@ -1,12 +1,25 @@
-.container{
-    padding: 40px;
-    text-align: center;
-    background-color:#ececec;
-    height: 100vh;
-    font-family: 'Playfair Display', serif;
+.weatherPicture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  box-sizing: border-box;
 }
 
-.title{
-    color: rgb(78, 28, 124);
-        padding: 20px;
+.container {
+  text-align: center;
+  height: 100vh;
+  font-family: "Playfair Display", serif;
+  display: flex;
+  align-items: center;
+  object-fit: cover;
+  box-sizing: border-box;
+}
+
+.innerContainer {
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./style.module.css";
-import { geocoding } from "../../constants/constants";
+import { geocoding } from "../../constants/geocodingList";
 import { useWeather } from "../../Context/WeatherContext";
 
 function Filter({ updateCity }) {
@@ -10,7 +10,7 @@ function Filter({ updateCity }) {
     return geocoding.map((item) => (
       <option
         key={item.cityName}
-        className={style.filter}
+        className={`${style.filter} ${style.selectSelected}`}
         value={item.cityName}
       >
         {item.cityName.charAt(0).toUpperCase() +
@@ -20,9 +20,9 @@ function Filter({ updateCity }) {
   }
 
   return (
-    <div>
+    <div className={style.customSelectContainer}>
       <select
-        className={style.cardHeader}
+        className={style.customSelect}
         onChange={(e) => updateCity(e.target.value)}
       >
         <option className={style.filter} value={""}>
@@ -30,8 +30,6 @@ function Filter({ updateCity }) {
         </option>
         {renderWeatherData()}
       </select>
-      <br />
-      <br />
     </div>
   );
 }

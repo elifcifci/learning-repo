@@ -1,47 +1,49 @@
-.days{
-    max-width: fit-content;
-    text-align: center;
+.days {
+  max-width: fit-content;
+  text-align: center;
 }
 
-.cardContainer{
-    gap: 14px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-    max-width: 750px;
-    margin-left: auto;
-    margin-right: auto;
-
+.cardContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 0 auto;
+  padding: 10px;
+  flex-wrap: wrap;
+  list-style-type: none;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.8);
+  height: auto;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
-.cards{
-    background-color: #fff;
-    border-radius: 20%;
-    padding: 3px;
-    border: rgb(222, 196, 247) solid 3px;
-    width: 130px;
-    height: 145px;
-    flex-shrink: 0;
-}
-.currentDay{
-    background-color: #fff;
-    border: rgb(162, 125, 197) solid 3px;
-
+.cards {
+  padding: 3px;
+  width: 130px;
+  height: 145px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.weatherImages{
-    max-width: 50px;
-    margin-bottom: 8px;
+.weatherImages {
+  max-width: 40px;
+  margin-bottom: 8px;
 }
-.maxTemperature{
-    font-size: 18px;
-    color: rgb(48, 47, 47)
-}
-.minTemperature{
-    font-size: 18px;
-    color: grey
+.temperatures {
+  font-size: 16px;
+  color: white;
 }
 
-.h5{
-    font-size: 20px;
-    margin-top: 6px;
+.temperatures > :last-child {
+  color: lightgrey;
+}
+
+.h5 {
+  color: white;
+  font-size: 16px;
+  margin-top: 6px;
 }

@@ -1,14 +1,90 @@
-.cardHeader{
+/* select {
+    appearance: none; 
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    line-height: inherit;
+    color: white;
+  } */
+
+  :root{
+    --min-width: 1440px;
+    --min-width: 1440px;
+    --min-width: 1440px;
+    --min-width: 1440px;
+    --min-width: 1440px;
+  }
+
+.customSelectContainer{
+    position: absolute;
+    z-index: 99;
+    top: 10px;
+    right: 10px;
+    
+}
+
+
+.customSelect {
+    /* The appearance will remove default arrow */
+    appearance: none; 
+    display: grid;
+    cursor: pointer;
+
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    outline: none;
     border-radius: 10px;
-    border: solid 0px ;
-    padding: 8px;
+    border: none;
+    padding: 5px 1em 5px 0;
     margin: 6px 0 6px 0;
-    font-size: large;
-    background-color: rgb(222, 196, 247);
+    font-size: 16px;
+    background-color: rgba( 0, 0, 0, 0.2);
+    color: white;
     text-align: center;
 }
 
+
+.customSelectContainer::after {
+    content: " x";
+    width: 0.8em;
+    height: 0.5em;
+    position: absolute;
+    cursor: pointer;
+    background-color: rgba( 255, 255, 255, 0.9);
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    top: 30px;
+    right: 30px;
+  }
+
 .filter{
+    display:initial;
+
     font-size: small;
     border: solid;
+}
+
+@media(min-width: 1440px){
+    .customSelectContainer{
+        top: 40px;
+        right: 40px;
+    }
+    
+    
+    .customSelect{
+        border-radius: 10px;
+        padding: 10px;
+        margin: 6px 0 6px 0;
+        font-size: 28px;
+        text-align: center;
+    }
+    
+    .filter{
+        font-size: small;
+    }
 }

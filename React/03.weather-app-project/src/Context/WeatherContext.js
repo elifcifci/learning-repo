@@ -1,38 +1,60 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import useGeolocation from "react-hook-geolocation";
-import { geocoding } from "../constants/constants";
+import { geocoding } from "../constants/geocodingList";
+
 const WeatherContext = createContext();
 
 export const WeatherProvider = ({ children }) => {
-  const [weatherKnowledge, setWeatherKnowledge] = useState([]);
+  // weatherKnowledge provides us max and min temperatures and weather forecast information.
+  const [weatherKnowledge, setWeatherKnowledge] = useState({
+    min: [],
+    max: [],
+    weather: [],
+  });
+  const [currentDayWeather, setCurrentDayWeather] = useState({
+    min: [],
+    max: [],
+    weather: [],
+  });
+
   const [cityCoordinate, setCityCoordinate] = useState({
     latitude: "41.292782",
     longitude: "36.33128",
   });
+
   const [currentCity, setCurrentCity] = useState("");
   const [isLocationCompleted, setIsLocationCompleted] = useState(true);
+  const [counter, setCounter] = useState(0);
+  const [windSpeed, setWindSpeed] = useState(0);
+
   const geolocation = useGeolocation();
+  let temporaryWeek;
+  let temporaryCurrentDay;
 
   //Reach current location
   useEffect(() => {
-    !geolocation.error
-      ? setCityCoordinate({
-          latitude: geolocation.latitude,
-          longitude: geolocation.longitude,
-        })
-      : console.log("No geolocation.");
+    if (counter === 0 && !geolocation.error) {
+      setCityCoordinate({
+        latitude: geolocation.latitude,
+        longitude: geolocation.longitude,
+      });
+    } else if (counter === 0) {
+      console.log("No geolocation.");
+    }
+
+    setInterval(() => {
+      setCounter(1);
+    }, 1000);
   }, [geolocation?.latitude]);
 
+  //Update selected city
   useEffect(() => {
+    console.log(currentCity, cityCoordinate);
     cityCoordinate && setIsLocationCompleted(true);
-
     geocoding.map((item) => {
-      let citiesLatitude = parseInt(item.lat);
-      let citiesLongitude = parseInt(item.lon);
-
       if (
-        parseInt(cityCoordinate.latitude) === citiesLatitude &&
-        parseInt(cityCoordinate.longitude) === citiesLongitude
+        parseInt(cityCoordinate.latitude) === parseInt(item.lat) &&
+        parseInt(cityCoordinate.longitude) === parseInt(item.lon)
       ) {
         return setCurrentCity(item.cityName);
       }
@@ -47,9 +69,22 @@ export const WeatherProvider = ({ children }) => {
       )
         .then((res) => res.json())
         .then((data) => {
-          setWeatherKnowledge(data.daily);
-        });
-      setIsLocationCompleted(!isLocationCompleted);
+          setWindSpeed(data.daily[0].wind_speed);
+          temporaryWeek = { min: [], max: [], weather: [] };
+          temporaryCurrentDay = { min: [], max: [], weather: [] };
+
+          setWeatherKnowledge(
+            createTemporaryKnowledge(1, 7, temporaryWeek, data)
+          );
+
+          setCurrentDayWeather(
+            createTemporaryKnowledge(0, 1, temporaryCurrentDay, data)
+          );
+        })
+        .then(() => {
+          setIsLocationCompleted(!isLocationCompleted);
+        })
+        .catch((err) => console.log("Error: ", err));
     }
   }, [isLocationCompleted]);
 
@@ -60,12 +95,33 @@ export const WeatherProvider = ({ children }) => {
     });
   };
 
+  const createTemporaryKnowledge = (
+    initialValue,
+    lastValue,
+    targetTemporary,
+    data
+  ) => {
+    for (let i = initialValue; i < lastValue; i++) {
+      targetTemporary.min.push(convertCelsius(data.daily[i].temp.min));
+      targetTemporary.max.push(convertCelsius(data.daily[i].temp.max));
+      targetTemporary.weather.push(data.daily[i].weather[0].main.toLowerCase());
+    }
+
+    return targetTemporary;
+  };
+
+  const convertCelsius = (number) => {
+    return Math.round(parseFloat(number) - 273.15);
+  };
+
   const values = {
-    updateLatitudeAndLongitude,
-    weatherKnowledge,
     cityCoordinate,
     isLocationCompleted,
     currentCity,
+    windSpeed,
+    weatherKnowledge,
+    currentDayWeather,
+    updateLatitudeAndLongitude,
   };
 
   return (

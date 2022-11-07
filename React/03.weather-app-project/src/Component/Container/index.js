@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react";
-import Filter from "../Filter";
+import Header from "../Header";
 import Cards from "../Cards";
 import style from "./style.module.css";
-import { geocoding } from "../../constants/constants";
+import ImageGenerator from "./ImageGenerator";
+import { geocoding } from "../../constants/geocodingList";
 import { useWeather } from "../../Context/WeatherContext";
 
 function Container() {
   const [updatedGeocoding, setUpdatedGeocoding] = useState([{}]);
   const { updateLatitudeAndLongitude } = useWeather();
+
+  useEffect(() => {
+    updateLatitudeAndLongitude(updatedGeocoding);
+  }, [updatedGeocoding]);
 
   let updateCity = (city) => {
     let filteredCity = geocoding.filter((item) => {
@@ -21,15 +26,13 @@ function Container() {
     }
   };
 
-  useEffect(() => {
-    updateLatitudeAndLongitude(updatedGeocoding);
-  }, [updatedGeocoding]);
-
   return (
     <div className={style.container}>
-      <h1 className={style.title}>The Weather</h1>
-      <Filter updateCity={updateCity} />
-      <Cards />
+      <ImageGenerator />
+      <div className={style.innerContainer}>
+        <Header updateCity={updateCity} />
+        <Cards isForCurrentDay={false} />
+      </div>
     </div>
   );
 }

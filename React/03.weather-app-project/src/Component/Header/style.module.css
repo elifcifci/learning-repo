@@ -1,0 +1,52 @@
+.headerContainer {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: auto;
+  padding: 20px 0 0 20px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.date {
+  font-size: 15px;
+  color: white;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.4);
+  text-align: start;
+}
+
+.date > :first-child {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.dayName {
+  display: none;
+}
+
+.cityPictureContainer {
+  position: relative;
+}
+
+@media (min-width: 1440px) {
+  .date {
+    top: 30px;
+    left: 30px;
+    z-index: 2;
+    font-size: 25px;
+  }
+  .cityPicture {
+    width: 100%;
+    height: 50vh;
+  }
+  .date > :first-child {
+    font-size: 80px;
+  }
+  .dayName {
+    display: initial;
+  }
+
+  .filter {
+    top: 30px;
+    right: 30px;
+  }
+}
